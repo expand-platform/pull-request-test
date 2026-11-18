@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pull Request Test — Ship with confidence</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            var key = "pr-test-theme";
+            var t = localStorage.getItem(key);
+            if (t !== "light" && t !== "dark") {
+                t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            }
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script>
 </head>
 
 <body>
@@ -17,7 +27,14 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#footer">Contact</a>
             </nav>
-            <a href="#hero" class="btn btn-small">Get started</a>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true"
+                    aria-label="Switch to light theme" title="Light mode">
+                    <span class="theme-toggle-icon theme-toggle-icon--sun" aria-hidden="true"></span>
+                    <span class="theme-toggle-icon theme-toggle-icon--moon" aria-hidden="true"></span>
+                </button>
+                <a href="#hero" class="btn btn-small">Get started</a>
+            </div>
         </div>
     </header>
 
@@ -109,6 +126,7 @@
             </nav>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
